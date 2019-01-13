@@ -1,0 +1,42 @@
+version: '3'
+services:
+  redis_server:
+    build:
+      context: ./redis_server/
+    container_name: redis
+    depends_on:
+      - web_server
+      - database_server
+    volumes:
+      - ./redis_server/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    links:
+      - web_server
+      - database_server
+
+    ports:
+      - "6379:6379"
+
+  web_server:
+    build:
+      context: ./web_server/
+    container_name: apache2
+    volumes:
+      - ./magento:/var/www/html
+      - ./web_server/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+    ports:
+      - "8080:80"
+    links:
+      - database_server
+    
+  database_server:
+    build:
+      context: ./database_server/
+      args:
+        - mysql_password=root
+        - mysql_database=m2_test
+    container_name: mysql
+    volumes: 
+      - ./database_server/supervisord.conf:/etc/supervisor/conf.d/supervisord.conf
+      - ./database_server/mysql.sh:/etc/mysql.sh
+    ports:
+      - "3306:3306"

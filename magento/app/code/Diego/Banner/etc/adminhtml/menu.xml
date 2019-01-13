@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Diego_Banner::banner" title="Banner Manager" module="Diego_Banner" sortOrder="51" resource="Diego_Banner::banner"/>
+        <add id="Diego_Banner::banner_banner_index" action="banner/banner/index" title="Manage Banners" module="Diego_Banner" sortOrder="51" parent="Diego_Banner::banner" resource="Diego_Banner::banner_banner_index"/>
+    </menu>
+</config>

@@ -1,0 +1,13 @@
+<?php
+/* @var $block Diego\Banner\Block\Banner\Banner */
+?>
+
+<?php if($items = $block->getBannerCollection()->getItems()) : ?>
+    <?php foreach ($items as $item) : ?>
+        <div class="banner-container" id="banner-container-<?=$item->getId()?>">
+            <img src="<?= $block->getMediaImageUrl($item->getImage())?>" class="banner-image base-image">
+            <img src="<?= $block->getMediaImageUrl($item->getSmallImage())?>" class="banner-image mobile-image">
+            <div class="banner-text"><?=$item->getText()?></div>
+        </div>
+    <?php endforeach;?>
+<?php endif;?>
