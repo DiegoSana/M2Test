@@ -84,8 +84,7 @@ class Form
                 'rows' => '5',
                 'cols' => '30',
                 'wysiwyg' => true,
-                'config' => $this->_wysiwygConfig->getConfig(),
-                'required' => true
+                'config' => $this->_wysiwygConfig->getConfig()
             ]
         );
         $fieldset->addField(
@@ -117,6 +116,7 @@ class Form
                 'label' => __('Image'),
                 'name' => 'image',
                 'note' => 'Allow image type: jpg, jpeg, gif, png',
+                'required' => true,
             ]
         );
         $fieldset->addField(
@@ -127,6 +127,7 @@ class Form
                 'label' => __('Small Image'),
                 'name' => 'small_image',
                 'note' => 'Allow image type: jpg, jpeg, gif, png',
+                'required' => true,
             ]
         );
 
