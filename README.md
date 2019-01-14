@@ -49,7 +49,7 @@ docker exec -it -u www-data apache2 bash
 composer install
 ```
 
-Put this content on app/etc/env.php
+Make sure that app/etc/env.php have this content
 
 ```
 <?php
